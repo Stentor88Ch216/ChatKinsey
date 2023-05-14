@@ -8,7 +8,7 @@ interface Joke {
 }
 
 export default async function serverAction() {
-    const response = await fetch("https://official-joke-api.appspot.com/random_joke");
+    const response = await fetch("https://official-joke-api.appspot.com/random_joke", { next: { revalidate: 1 } });
     const object: Joke = await response.json();
     const joke = object.setup + " " + object.punchline;
     console.log("🔌 Server action : " + joke);

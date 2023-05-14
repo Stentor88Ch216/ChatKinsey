@@ -10,6 +10,7 @@ export default function AddButton(props: AddButtonProps) {
 
     async function buttonAction() {
         const joke = await serverAction();
+        //revalidatePath("/");
         props.func(joke);
     }
 
