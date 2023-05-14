@@ -1,6 +1,7 @@
 "use client";
 
 import serverAction from "./ServerFunctions";
+import getHello from "./OpenaiFunctions";
 
 interface AddButtonProps {
     func: (text: string) => void;
@@ -9,9 +10,9 @@ interface AddButtonProps {
 export default function AddButton(props: AddButtonProps) {
 
     async function buttonAction() {
-        const joke = await serverAction();
-        //revalidatePath("/");
-        props.func(joke);
+        //const joke = await serverAction();
+        const gptMessage = await getHello();
+        props.func(gptMessage);
     }
 
     return (
