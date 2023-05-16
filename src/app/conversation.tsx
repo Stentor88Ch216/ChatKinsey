@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from "react";
-import { ChatCompletionRequestMessage, ChatCompletionRequestMessageRoleEnum } from "openai";
+import { ChatCompletionRequestMessage } from "openai";
 import { experimental_useOptimistic as useOptimistic } from "react";
 import { sendPrompts } from "./OpenaiFunctions";
 
@@ -38,14 +38,12 @@ export default function Conversation() {
 
     return (
         <div>
-
             {optimisticMessages.map((message, index) => <div key={index.toString()+message.content[0]}>{message.content}</div>)}
             
             <form action={sendMessage}>
                 <textarea placeholder="Votre message..." name="textfield"></textarea>
                 <button>Your message...</button>
             </form>
-
         </div>
         
     );
