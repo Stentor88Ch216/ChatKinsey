@@ -46,13 +46,13 @@ export async function getHello() {
 }
 */
 
-export async function appendToConversation(conversation: ChatCompletionRequestMessage[], text: string, role: role) {
+export async function updateConversation(conversation: ChatCompletionRequestMessage[], text: string, role: role) {
     const message: ChatCompletionRequestMessage = {
         role: role,
         content: text,
     }
-    conversation.push(message);
     console.log(conversation);
+    return [...conversation, message];
 }
 
 
