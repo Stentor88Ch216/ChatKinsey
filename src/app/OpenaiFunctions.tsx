@@ -3,9 +3,18 @@
 import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from "openai";
 
 type role = "system" | "user" | "assistant";
-
 const configuration = new Configuration({apiKey: process.env.OPENAI_API_KEY,});
 const openai = new OpenAIApi(configuration);
+
+
+export async function sendPrompts(conversation: ChatCompletionRequestMessage[]): Promise<string> {
+    const completion = await openai.createChatCompletion({
+        model: "gpt-3.5-turbo",
+        messages: conversation,
+    });
+    const response = completion.data.choices[0].message?.content;
+    return response ?? "❌ Error";
+}
 
 
 /*
@@ -28,13 +37,7 @@ export async function askGPT(text: string): Promise<string> {
     return response;
 }
 
-*/
 
-
-
-
-
-/*
 export async function getHello() {
     const completion = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
@@ -44,7 +47,7 @@ export async function getHello() {
     console.log("🤖 GPT server action : " + response ?? "rien");
     return response ?? "❌ Error";
 }
-*/
+
 
 export async function updateConversation(conversation: ChatCompletionRequestMessage[], text: string, role: role) {
     const message: ChatCompletionRequestMessage = {
@@ -56,16 +59,9 @@ export async function updateConversation(conversation: ChatCompletionRequestMess
 }
 
 
-export async function sendPrompts(conversation: ChatCompletionRequestMessage[]): Promise<string> {
-    const completion = await openai.createChatCompletion({
-        model: "gpt-3.5-turbo",
-        messages: conversation,
-    });
-    const response = completion.data.choices[0].message?.content;
-    return response ?? "❌ Error";
-}
 
-/*
+
+
 export async function startConversation(): Promise<string> {
     conversation = mcPrePrompt;
     const response = await sendPrompts(conversation);
