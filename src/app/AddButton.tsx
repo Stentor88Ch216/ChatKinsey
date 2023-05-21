@@ -1,6 +1,4 @@
-"use client";
-
-import { askGPT } from "./OpenaiFunctions";
+//import { askGPT } from "./OpenaiFunctions";
 
 interface AddButtonProps {
     func: (text: string) => void;
@@ -8,21 +6,24 @@ interface AddButtonProps {
 
 export default function AddButton(props: AddButtonProps) {
 
-    async function buttonAction() {
-        const textField = document.querySelector("#textfield") as HTMLInputElement;
-        const userInput = textField.value;
-        console.log("✅ Submit message : " + userInput);
+    async function buttonAction(formData: FormData) {
+        //const textField = document.querySelector("#textfield") as HTMLInputElement;
+        //const userInput = textField.value;
+        //console.log("✅ Submit message : " + userInput);
 
-        props.func(userInput);
-        textField.value = "";
+        //props.func(userInput);
+        //textField.value = "";
 
-        const gptAnswer = await askGPT(userInput);
-        props.func(gptAnswer);
+        //const gptAnswer = await askGPT(userInput);
+        //props.func(gptAnswer);
+
+        //"use server";
+        const userInput = formData.get("name");
     }
 
     return (
         <form action={buttonAction}>
-            <textarea placeholder="Votre message..." id="textfield"></textarea>
+            <textarea placeholder="Votre message..." name="textfield"></textarea>
             <button>Add message</button>
         </form>
     );
