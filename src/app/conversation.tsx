@@ -14,9 +14,9 @@ export default function Conversation() {
 
     const [conversation, setConversation] = useState(initialConversation);
 
-    function optimisticFunction(state: ChatCompletionRequestMessage[], newMessage: string) {
-        const optimisiticUserMessage: ChatCompletionRequestMessage = {role: "user", content: newMessage};
-        return ([...state, optimisiticUserMessage]);
+    function optimisticFunction(state: ChatCompletionRequestMessage[], newMessage: ChatCompletionRequestMessage) {
+        //const optimisiticUserMessage: ChatCompletionRequestMessage = {role: "user", content: newMessage};
+        return ([...state, newMessage]);
     }
     const [optimisticMessages, addOptimisticMessage] = useOptimistic(conversation, optimisticFunction);
     const textFieldRef = useRef<HTMLTextAreaElement>(null);
@@ -30,11 +30,11 @@ export default function Conversation() {
         
 
         if (userMessage) {
-            addOptimisticMessage(userMessage);
+            addOptimisticMessage({role: "user", content: userMessage});
             const newUserMessage: ChatCompletionRequestMessage = {role: "user", content: userMessage};
             setConversation(prev => [...prev, newUserMessage]);
 
-            addOptimisticMessage("GPT message...");
+            addOptimisticMessage({role: "assistant", content: "Thinking..."});
             const response = await sendPrompts([...conversation, newUserMessage]);
             const newGptMessage: ChatCompletionRequestMessage = {role: "assistant", content: response};
             setConversation(prev => [...prev, newGptMessage]);
@@ -44,11 +44,18 @@ export default function Conversation() {
 
     return (
         <div>
-            {optimisticMessages.map((message, index) => <div key={index.toString()+message.content[0]}>{message.content}</div>)}
-            
+
+            <div className="conversation">
+                {optimisticMessages.map((message, index) =>
+                    <div className="bubble" id={message.role} key={index.toString()+message.content[0]}>
+                        {message.content}
+                    </div>
+                )}
+            </div>
+
             <form action={sendMessage}>
-                <textarea placeholder="Votre message..." name="textfield" ref={textFieldRef}></textarea>
-                <button>Your message...</button>
+                <textarea placeholder="Votre message..." name="textfield" ref={textFieldRef} className="textfield"></textarea>
+                <button className="send-button">Envoyer 📤</button>
             </form>
         </div>
         

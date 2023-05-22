@@ -1,0 +1,45 @@
+.bubble {
+    border-radius: 15px;
+    padding: 10px;
+    
+}
+
+#user {
+    background-color: rgb(209, 234, 234);
+    align-self: flex-end;
+}
+
+#assistant {
+    background-color: rgb(209, 222, 234);
+    align-self: flex-start;
+}
+
+.conversation {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.textfield {
+    border-radius: 8px;
+    border: 2px solid #f5f5f5;
+    background: #ffffff;
+    font-size: medium;
+    color: #7D7D7D;
+    resize: none;
+    /*flex-grow: 1;*/
+    /*max-width: 800px;*/
+    padding: 10px;
+}
+
+.send-button {
+    color: #7D7D7D;
+    background-color: transparent;
+    border: none;
+    font-size: medium;
+}
+
+.send-button:hover {
+    color: #515151;
+    cursor: pointer;
+}
