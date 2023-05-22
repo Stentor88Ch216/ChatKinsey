@@ -55,11 +55,14 @@ export default function Conversation() {
                     <span>Bonjour, je suis une IA développée par ce génie de Thomas Douche. Posez-moi toutes vos questions.</span>
                 </div>
 
-                {optimisticMessages.map((message, index) =>
-                    <div className="bubble" id={message.role} key={index.toString()+message.content[0]}>
-                        {message.content}
-                    </div>
-                )}
+                {
+                    optimisticMessages.length > 0 ?
+                        optimisticMessages.map((message, index) =>
+                            <div className="bubble" id={message.role} key={index.toString()+message.content[0]}>
+                                {message.content}
+                            </div>
+                        ) : <div></div>
+                }
             </div>
 
             <form action={sendMessage} className="prompt" ref={formRef}>
