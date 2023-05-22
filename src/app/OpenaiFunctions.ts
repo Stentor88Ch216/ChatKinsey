@@ -7,10 +7,18 @@ const configuration = new Configuration({apiKey: process.env.OPENAI_API_KEY,});
 const openai = new OpenAIApi(configuration);
 
 
+let prePrompt: ChatCompletionRequestMessage[] = [
+    {role: "user", content: "Je m'appelle Pablo. Répond à toutes mes questions en mentionnant mon nom. Tu es un supporter fanatique du club de foot de l'OM. Dans chacune de tes réponses, tu fais une référence blagueuse à la supériorité de cette équipe."},
+];
+
+
 export async function sendPrompts(conversation: ChatCompletionRequestMessage[]): Promise<string> {
+
+    const fullConv = prePrompt.concat(conversation);
+
     const completion = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
-        messages: conversation,
+        messages: fullConv,
     });
     const response = completion.data.choices[0].message?.content;
     return response ?? "❌ Error";
