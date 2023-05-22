@@ -2,7 +2,7 @@
 
 import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from "openai";
 
-type role = "system" | "user" | "assistant";
+//type role = "system" | "user" | "assistant";
 const configuration = new Configuration({apiKey: process.env.OPENAI_API_KEY,});
 const openai = new OpenAIApi(configuration);
 
