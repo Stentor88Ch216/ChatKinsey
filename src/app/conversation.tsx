@@ -24,9 +24,9 @@ export default function Conversation() {
     async function sendMessage(formData: FormData) {
         const userMessage = formData.get("textfield")?.toString();
 
-        if (textFieldRef.current) {
-            textFieldRef.current.innerText = "testtt";
-        }
+        //if (textFieldRef.current) {
+        //    textFieldRef.current.innerText = "testtt";
+        //}
         
 
         if (userMessage) {
@@ -53,9 +53,9 @@ export default function Conversation() {
                 )}
             </div>
 
-            <form action={sendMessage}>
+            <form action={sendMessage} className="prompt">
                 <textarea placeholder="Votre message..." name="textfield" ref={textFieldRef} className="textfield"></textarea>
-                <button className="send-button">Envoyer 📤</button>
+                <button className="send-button">Envoyer</button>
             </form>
         </div>
         
