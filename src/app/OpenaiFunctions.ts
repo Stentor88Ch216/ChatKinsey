@@ -1,5 +1,8 @@
 "use server";
 
+import dotenv from 'dotenv';
+dotenv.config();
+
 import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from "openai";
 
 

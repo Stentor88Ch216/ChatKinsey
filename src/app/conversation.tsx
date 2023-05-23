@@ -3,6 +3,9 @@ import { useState, useRef, useEffect } from "react";
 import { ChatCompletionRequestMessage } from "openai";
 import { experimental_useOptimistic as useOptimistic } from "react";
 import { sendPrompts } from "./OpenaiFunctions";
+import WelcomeMessage from "./WelcomeMessage";
+import PromptForm from "./PromptForm";
+import Bubble from "./Bubble";
 
 
 let initialConversation: ChatCompletionRequestMessage[] = [];
@@ -32,7 +35,7 @@ export default function Conversation(props: ConversationProps) {
           });
     }, [optimisticMessages]);
 
-
+    
     async function sendMessage(formData: FormData) {
         const userMessage = formData.get("textfield")?.toString();
         formRef.current?.reset(); // Delete textfield content
@@ -48,33 +51,15 @@ export default function Conversation(props: ConversationProps) {
             setConversation(prev => [...prev, newGptMessage]);
         }
     }
-
+    
 
     return (
         <div className="chat-container">
-
             <div className="conversation" ref={messagesEndRef}>
-
-                <div className="bubble" id="assistant" key="bienvenue">
-                    <span>Bonjour, je suis une IA développée par ce génie de Thomas Douche. Posez-moi toutes vos questions.</span>
-                </div>
-
-                {
-                    optimisticMessages.length > 0 ?
-                        optimisticMessages.map((message, index) =>
-                            <div className="bubble" id={message.role} key={index.toString()+message.content[0]}>
-                                {message.content}
-                            </div>
-                        ) : <div></div>
-                }
+                <WelcomeMessage/>
+                {optimisticMessages.map((m, i) => <Bubble message={m} index={i} />)}
             </div>
-
-            <form action={sendMessage} className="prompt" ref={formRef}>
-                <textarea placeholder="Votre message..." name="textfield" className="textfield"></textarea>
-                <button className="send-button">Envoyer</button>
-            </form>
-
+            <PromptForm action={sendMessage} formRef={formRef}/>
         </div>
-        
     );
 }
