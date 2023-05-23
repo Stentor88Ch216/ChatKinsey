@@ -1,6 +1,6 @@
 "use client";
 import Sketch from "react-p5";
-import p5Types from 'p5';
+import type P5 from "p5";
 
 
 type Position = "start" | "movingF" | "movingB" | "finish";
@@ -38,11 +38,11 @@ interface LinesProps {
 export default function Lines() {
 
 
-  const setup = (p5: p5Types, canvasParentRef: Element) => {
+  const setup = (p5: P5, canvasParentRef: Element) => {
     p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef);
   };
 
-  const windowResized = (p5: p5Types) => {
+  const windowResized = (p5: P5) => {
     p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
   }
 
@@ -56,7 +56,7 @@ export default function Lines() {
   }
 
 
-  const draw = (p5: p5Types) => {
+  const draw = (p5: P5) => {
     p5.background(255);
 
     // props.playButton

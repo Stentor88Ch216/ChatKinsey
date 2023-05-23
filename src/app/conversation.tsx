@@ -10,12 +10,13 @@ import Bubble from "./Bubble";
 
 let initialConversation: ChatCompletionRequestMessage[] = [];
 
+/*
 interface ConversationProps{
     playAnimation: boolean;
     setPlayAnimation: (value: boolean) => void;
-}
+}*/
 
-export default function Conversation(props: ConversationProps) {
+export default function Conversation() {
 
     const [conversation, setConversation] = useState(initialConversation);
     function optimisticFunction(state: ChatCompletionRequestMessage[], newMessage: ChatCompletionRequestMessage) {
@@ -28,7 +29,7 @@ export default function Conversation(props: ConversationProps) {
     // Scroll to bottom when new message
     const messagesEndRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
-        props.setPlayAnimation(true);
+        //props.setPlayAnimation(true);
         messagesEndRef.current?.scrollTo({
             top: messagesEndRef.current?.scrollHeight,
             behavior: "smooth",
@@ -57,7 +58,7 @@ export default function Conversation(props: ConversationProps) {
         <div className="chat-container">
             <div className="conversation" ref={messagesEndRef}>
                 <WelcomeMessage/>
-                {optimisticMessages.map((m, i) => <Bubble message={m} index={i} />)}
+                {optimisticMessages.map((m, i) => <Bubble message={m} index={i} key={i.toString()+m.content[0]}/>)}
             </div>
             <PromptForm action={sendMessage} formRef={formRef}/>
         </div>

@@ -5,12 +5,13 @@ import Conversation from "./conversation";
 
 export default function MyPage() {
 
-  const [play, setPlay] = useState(false);
+  //const [play, setPlay] = useState(false);
 
   return (
     <div>
       {/*<Lines playButton={play} setPlayButton={setPlay}/>*/}
-      <Conversation playAnimation={play} setPlayAnimation={setPlay}/>
+      {/*<Conversation playAnimation={play} setPlayAnimation={setPlay}/>*/}
+      <Conversation/>
     </div>
   );
 }
