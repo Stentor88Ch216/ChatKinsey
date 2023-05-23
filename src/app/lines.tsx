@@ -7,7 +7,7 @@ type Position = "start" | "movingF" | "movingB" | "finish";
 let position: Position = "start";
 
 let t0 = 0;
-//let play = false;
+let play = false;
 let duration = 1000;
 
 type Animated = {
@@ -17,8 +17,8 @@ type Animated = {
 }
 
 let angle: Animated = {start: 2.5, current: 2.5, end: 4};
-let radius: Animated = {start: 70, current: 70, end: 100};
-let firstLineAngle: Animated = {start: 98, current: 98, end: 100};
+let radius: Animated = {start: 300, current: 300, end: 100};
+let firstLineAngle: Animated = {start: 120, current: 120, end: 100};
 
 function current(v: Animated, t: number, axe: number) {
   let animationFactor = -0.5*Math.cos(t*3.14/duration) + 0.5;
@@ -27,13 +27,15 @@ function current(v: Animated, t: number, axe: number) {
   return origin + axe * increment;
 }
 
+/*
 interface LinesProps {
     playButton: boolean;
     setPlayButton: (value: boolean) => void;
 }
+*/
 
-
-export default function Lines(props: LinesProps) {
+// props: LinesProps
+export default function Lines() {
 
 
   const setup = (p5: p5Types, canvasParentRef: Element) => {
@@ -57,9 +59,11 @@ export default function Lines(props: LinesProps) {
   const draw = (p5: p5Types) => {
     p5.background(255);
 
-    if (props.playButton) {
+    // props.playButton
+    if (play) {
       t0 = p5.millis();
-      props.setPlayButton(false);
+      //props.setPlayButton(false);
+      play = false;
 
       if (position == "start") {
         position = "movingF";
@@ -84,8 +88,8 @@ export default function Lines(props: LinesProps) {
 
 
 
-    let circleX = 150;
-    let circleY = p5.height - 200;
+    let circleX = 400;
+    let circleY = 2*p5.height/3;
 
     p5.fill(255, 255, 255, 0);
     p5.stroke(200, 200, 200, 0);

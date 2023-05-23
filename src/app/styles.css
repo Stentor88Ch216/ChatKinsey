@@ -1,6 +1,18 @@
 .bubble {
-    padding: 30px;
-    color: #222222;
+    padding: 20px 40px;
+    color: #151e4d;
+    display: flex;
+}
+
+.spacer {
+    /*background-color: aqua;*/
+    width: 20%;
+    flex-shrink: 0;
+
+}
+
+.message-text {
+    line-height: 180%;
 }
 
 #user {
@@ -8,10 +20,14 @@
 }
 
 #assistant {
-    background-color: rgba(0, 0, 0, 0.047);
+    background-color: rgb(247, 248, 250);
+    
+    /*
     border: solid;
-    border-color: rgba(0, 0, 0, 0.061);
-    border-width: 1px 0px 1px 0px;
+    border-color: rgb(239, 239, 243);
+    border-width: 1.5px;
+    */
+    border-radius: 10px;
 }
 
 .conversation {
@@ -19,10 +35,14 @@
     flex-direction: column;
     flex: 1;
     overflow-y: auto;
+    /*margin-right: 20px;
+    margin-top: 20px;*/
+    padding: 30px;
 }
 
 .textfield {
     border: none;
+    outline: none;
     font-size: medium;
     resize: none;
     flex-grow: 1;
@@ -30,14 +50,14 @@
 }
 
 .send-button {
-    color: #7D7D7D;
+    color: rgb(19, 64, 231);
     background-color: transparent;
     border: none;
     font-size: medium;
 }
 
 .send-button:hover {
-    color: #515151;
+    color: rgb(40, 177, 245);
     cursor: pointer;
 }
 
@@ -45,15 +65,23 @@
     display: flex;
     justify-content: center;
     padding: 10px;
-    margin: 30px;
+    /*margin: 30px;*/
+    /*margin-bottom: 30px;*/
     box-sizing: border-box;
     /*max-width: 800px;*/
     border-radius: 8px;
-    border: 1px solid rgb(230, 230, 230);
+    /*rgb(19, 64, 231);*/
+    border: 1px solid rgb(212, 215, 231);
     background: #ffffff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.095);
+    box-shadow: 0px 0px 10px rgba(27, 39, 99, 0.107);
     /*align-self: center;*/
+    flex-grow: 1;
     
+}
+
+.prompt-container {
+    display: flex;
+    padding: 0px 30px 30px 30px;
 }
 
 .chat-container {
@@ -63,6 +91,8 @@
     flex-direction: column;
     /*align-items: stretch;*/
     /*position: static;*/
+    /*padding: 30px;
+    box-sizing:border-box;*/
 }
 
 body {
@@ -81,4 +111,29 @@ body {
     display: flex;
     position: fixed;
     z-index: -1;
+}
+
+
+.app-container {
+    display: flex;
+}
+
+.sidebar {
+    background-color: transparent;
+    /*border: solid;
+    border-color: rgba(0, 0, 0, 0.061);
+    border-width: 0px 1px 0px 0px;*/
+    width: 280px;
+    /*box-shadow: inset -10px 0px 30px rgba(0, 0, 0, 0.061);*/
+    flex-shrink: 0;
+
+}
+
+.main-content {
+    flex-grow: 1;
+}
+
+.logo {
+    width: 150px;
+    padding: 30px;
 }

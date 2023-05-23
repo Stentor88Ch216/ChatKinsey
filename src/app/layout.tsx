@@ -1,7 +1,5 @@
-import dotenv from 'dotenv';
-
-
-dotenv.config();
+import Lines from "./lines"
+import logo from "./ChatKinseyLogo.png"
 
 export const metadata = {
   title: 'ChatKinsey',
@@ -15,7 +13,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+
+        <div className="app-container">
+          <Lines/>
+          <div className="sidebar">
+            <img src={logo.src} alt="logo" className="logo"/>
+          </div>
+          <div className="main-content">{children}</div>
+        </div>
+
+      </body>
     </html>
   )
 }

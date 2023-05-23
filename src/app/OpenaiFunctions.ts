@@ -11,7 +11,7 @@ const openai = new OpenAIApi(configuration);
 
 
 let prePrompt: ChatCompletionRequestMessage[] = [
-    {role: "user", content: "Réponds à toutes mes questions avec un seul mot."},
+    {role: "user", content: "Tu es un entrepreneur à succès qui me conseille pour mon projet. Tu réponds à mes questions en 2 courtes phrases."},
 ];
 
 
