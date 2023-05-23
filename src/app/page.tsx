@@ -1,5 +1,5 @@
 import "./styles.css"
-import MyPage from "./MyPage1";
+import MyPage from "./MyPage";
 
 export default async function Home() {
 
