@@ -4,12 +4,14 @@
 }
 
 #user {
-    background-color: rgb(255, 255, 255);
+    background-color: transparent;
 }
 
 #assistant {
-    background-color: rgb(244, 244, 244);
-    border: 1px solid rgb(230, 230, 230);
+    background-color: rgba(0, 0, 0, 0.047);
+    border: solid;
+    border-color: rgba(0, 0, 0, 0.061);
+    border-width: 1px 0px 1px 0px;
 }
 
 .conversation {
@@ -55,10 +57,12 @@
 }
 
 .chat-container {
+    background-color: transparent;
     height: 100vh;
     display: flex;
     flex-direction: column;
     /*align-items: stretch;*/
+    /*position: static;*/
 }
 
 body {
@@ -68,4 +72,13 @@ body {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+
+.p5Canvas {
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    position: fixed;
+    z-index: -1;
 }

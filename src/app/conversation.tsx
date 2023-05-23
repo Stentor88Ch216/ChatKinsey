@@ -1,5 +1,4 @@
 'use client';
-
 import { useState, useRef, useEffect } from "react";
 import { ChatCompletionRequestMessage } from "openai";
 import { experimental_useOptimistic as useOptimistic } from "react";
@@ -8,7 +7,12 @@ import { sendPrompts } from "./OpenaiFunctions";
 
 let initialConversation: ChatCompletionRequestMessage[] = [];
 
-export default function Conversation() {
+interface ConversationProps{
+    playAnimation: boolean;
+    setPlayAnimation: (value: boolean) => void;
+}
+
+export default function Conversation(props: ConversationProps) {
 
     const [conversation, setConversation] = useState(initialConversation);
     function optimisticFunction(state: ChatCompletionRequestMessage[], newMessage: ChatCompletionRequestMessage) {
@@ -21,7 +25,7 @@ export default function Conversation() {
     // Scroll to bottom when new message
     const messagesEndRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
-        //messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+        props.setPlayAnimation(true);
         messagesEndRef.current?.scrollTo({
             top: messagesEndRef.current?.scrollHeight,
             behavior: "smooth",

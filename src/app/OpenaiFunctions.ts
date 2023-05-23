@@ -2,13 +2,13 @@
 
 import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from "openai";
 
-//type role = "system" | "user" | "assistant";
-const configuration = new Configuration({apiKey: process.env.OPENAI_API_KEY,});
+
+const configuration = new Configuration({apiKey: process.env.OPENAI_API_KEY});
 const openai = new OpenAIApi(configuration);
 
 
 let prePrompt: ChatCompletionRequestMessage[] = [
-    {role: "user", content: "Je m'appelle Pablo. Répond à toutes mes questions en mentionnant mon nom. Tu es un supporter fanatique du club de foot de l'OM. Dans chacune de tes réponses, tu fais une référence blagueuse à la supériorité de cette équipe."},
+    {role: "user", content: "Réponds à toutes mes questions avec un seul mot."},
 ];
 
 
