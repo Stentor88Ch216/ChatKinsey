@@ -45,7 +45,8 @@ input {
 */
 
 .about-modal-button {
-    color: rgb(40, 177, 245);;
+    color: rgb(40, 177, 245);
+    font-style: italic;
 }
 .about-modal-button:hover {
     color: rgb(19, 64, 231);
