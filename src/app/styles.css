@@ -4,6 +4,13 @@
     display: flex;
 }
 
+
+@media screen and (max-width: 768px) {
+    .bubble {
+        padding: 5px 10px;
+    }
+}
+
 .spacer {
     /*background-color: aqua;*/
     width: 20%;
@@ -28,7 +35,10 @@
     border-width: 1.5px;
     */
     border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(27, 39, 99, 0.107);
 }
+
+
 
 .conversation {
     display: flex;
@@ -38,6 +48,12 @@
     /*margin-right: 20px;
     margin-top: 20px;*/
     padding: 30px;
+}
+
+@media screen and (max-width: 768px) {
+    .conversation {
+        padding: 10px;
+    }
 }
 
 .textfield {
@@ -76,12 +92,17 @@
     box-shadow: 0px 0px 10px rgba(27, 39, 99, 0.107);
     /*align-self: center;*/
     flex-grow: 1;
-    
 }
 
 .prompt-container {
     display: flex;
     padding: 0px 30px 30px 30px;
+}
+
+@media screen and (max-width: 768px) {
+    .prompt-container {
+        padding: 0px 10px 10px 10px;
+    }
 }
 
 .chat-container {
@@ -129,11 +150,30 @@ body {
 
 }
 
+@media screen and (max-width: 768px) {
+    .sidebar {
+      display: none;
+    }
+}
+
 .main-content {
     flex-grow: 1;
 }
 
 .logo {
     width: 150px;
+    height: 60px;
     padding: 30px;
+}
+
+.welcome-logo {
+    width: 150px;
+    height: 60px;
+    padding: 30px;
+    align-self: center;
+}
+@media screen and (min-width: 768px) {
+    .welcome-logo {
+      display: none;
+    }
 }

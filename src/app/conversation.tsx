@@ -6,6 +6,8 @@ import { sendPrompts } from "./OpenaiFunctions";
 import WelcomeMessage from "./WelcomeMessage";
 import PromptForm from "./PromptForm";
 import Bubble from "./Bubble";
+import Image from "next/image";
+import logo from "./ChatKinseyLogoHD.png";
 
 
 let initialConversation: ChatCompletionRequestMessage[] = [];
@@ -57,6 +59,7 @@ export default function Conversation() {
     return (
         <div className="chat-container">
             <div className="conversation" ref={messagesEndRef}>
+                <Image src={logo} alt="logo" className="welcome-logo"></Image>
                 <WelcomeMessage/>
                 {optimisticMessages.map((m, i) => <Bubble message={m} index={i} key={i.toString()+m.content[0]}/>)}
             </div>

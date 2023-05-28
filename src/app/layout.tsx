@@ -1,5 +1,5 @@
 import Lines from "./lines"
-import logo from "./ChatKinseyLogo.png"
+import logo from "./ChatKinseyLogoHD.png"
 import Image from "next/image"
 
 export const metadata = {
@@ -19,9 +19,7 @@ export default function RootLayout({
         <div className="app-container">
           <Lines/>
           <div className="sidebar">
-            {/*<img src={logo.src} alt="logo" className="logo"/>*/}
-            <span>Hello World!!</span>
-            {/*<Image src={logo} alt="logo"></Image>*/}
+            <Image src={logo} alt="logo" className="logo"></Image>
           </div>
           <div className="main-content">{children}</div>
         </div>
