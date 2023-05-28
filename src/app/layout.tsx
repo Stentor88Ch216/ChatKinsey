@@ -20,7 +20,7 @@ export default function RootLayout({
           <Lines/>
           <div className="sidebar">
             {/*<img src={logo.src} alt="logo" className="logo"/>*/}
-            Hello
+            <span>Hello World!!</span>
             {/*<Image src={logo} alt="logo"></Image>*/}
           </div>
           <div className="main-content">{children}</div>
