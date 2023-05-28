@@ -1,4 +1,4 @@
-import About from "./AboutModal";
+import About from "./about/AboutModal";
 
 
 export default function WelcomeMessage() {

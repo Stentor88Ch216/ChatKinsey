@@ -1,5 +1,5 @@
 import Lines from "./lines"
-import logo from "./ChatKinseyLogoHD.png"
+import logo from "./images/ChatKinseyLogoHD.png"
 import Image from "next/image"
 
 export const metadata = {

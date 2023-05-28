@@ -7,7 +7,7 @@ import WelcomeMessage from "./WelcomeMessage";
 import PromptForm from "./PromptForm";
 import Bubble from "./Bubble";
 import Image from "next/image";
-import logo from "./ChatKinseyLogoHD.png";
+import logo from "./images/ChatKinseyLogoHD.png";
 
 
 let initialConversation: ChatCompletionRequestMessage[] = [];
