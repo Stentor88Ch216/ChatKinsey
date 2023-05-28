@@ -6,13 +6,13 @@ import { TwitterLogoIcon, LinkedInLogoIcon, GitHubLogoIcon, EnvelopeClosedIcon }
 export default function Content() {
     return (
 
-        <div>
+        <div className='about'>
 
             <div className='cv'>
                 <Avatar.Root className="AvatarRoot">
                     <Avatar.Image
                         className="AvatarImage"
-                        src="https://pbs.twimg.com/profile_images/1662891844508831744/IMYwJBpN_400x400.jpg"
+                        src="https://pbs.twimg.com/profile_images/1662912989316493312/OikmnLqo_400x400.jpg"
                         alt="Thomas Douche"
                     />
                 </Avatar.Root>
@@ -35,18 +35,16 @@ export default function Content() {
                             <EnvelopeClosedIcon className='reseau'/>
                         </a>
                     </div>
-                        
-
                 </div>
-                
-                
-                
-
             </div>
 
-            
-
-            <p>Cette application est une preuve de concept développée sur mon temps libre et pour mon propre usage.</p>
+            <p className='info'>
+                <p>Cette application est une preuve de concept. Elle n'est qu'un aperçu très superficiel des possibilités offertes par les intelligences artificielles génératives.</p>
+                <p>Ces technologies vont profondément transformer les entreprises en automatisant des tâches que l'on pensait jusque-là réservées aux humains.</p>
+                <p>Rapidement, les gains en productivité seront tels qu'aucune entreprise, pour sa survie, ne pourra se permettre de l'ignorer.</p>
+                <p>Cela nécessitera de repenser les métiers et les organisations, non sans difficultés.</p>
+                <p>Accompagner les entreprises dans cette révolution sera l'un des défis les plus passionnants de ces prochaines décénnies.</p>
+            </p>
 
         </div>
 
