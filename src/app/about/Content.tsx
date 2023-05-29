@@ -43,7 +43,7 @@ export default function Content() {
                 <p>Ces technologies vont profondément transformer les entreprises en automatisant des tâches que l'on pensait jusque-là réservées aux humains.</p>
                 <p>Rapidement, les gains en productivité seront tels qu'aucune entreprise, pour sa survie, ne pourra se permettre de l'ignorer.</p>
                 <p>Cela nécessitera de repenser les métiers et les organisations, non sans difficultés.</p>
-                <p>Accompagner les entreprises dans cette révolution sera l'un des défis les plus passionnants de ces prochaines décénnies.</p>
+                <p>Accompagner les entreprises dans cette révolution sera l'un des défis les plus passionnants de ces prochaines années.</p>
             </p>
 
         </div>

@@ -5,6 +5,13 @@ dotenv.config();
 
 import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from "openai";
 
+import { LLMChatResult, LLMServiceChatOptions, OpenAIMessage, createLLMService} from "usellm";
+import { LLMServiceHandleResponse } from 'usellm/dist/types/createLLMService';
+//const llm = useLLM({ serviceUrl: "https://api.openai.com/v1/chat/completions" });
+const llmService = createLLMService({
+    openaiApiKey: process.env.OPENAI_API_KEY, // provide OpenAI API key
+    actions: ["chat"], // enable specific actions
+  });
 
 const configuration = new Configuration({apiKey: process.env.OPENAI_API_KEY});
 const openai = new OpenAIApi(configuration);
@@ -27,6 +34,23 @@ export async function sendPrompts(conversation: ChatCompletionRequestMessage[]):
     });
     const response = completion.data.choices[0].message?.content;
     return response ?? "❌ Error";
+}
+
+
+export async function sendPromptsStream(userText: string) {
+
+    let mess: OpenAIMessage = {content: userText, role: "user"};
+    let chat: LLMServiceChatOptions = {$action: "chat", messages: [mess]};
+
+    try {
+        const res: LLMServiceHandleResponse = await llmService.handle({ body: chat, request: undefined });
+        const resp: Response = new Response(res.result, { status: 200 });
+        const obj = JSON.parse(await resp.text());
+        const cont = obj.choices[0].message.content;
+        return cont;
+    } catch (error: any) {
+        return error.message;
+    }
 }
 
 
