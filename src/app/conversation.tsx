@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import { ChatCompletionRequestMessage } from "openai";
 import { experimental_useOptimistic as useOptimistic } from "react";
-import { sendPrompts, sendPromptsStream } from "./OpenaiFunctions";
+import { sendPrompts } from "./OpenaiFunctions";
 import WelcomeMessage from "./WelcomeMessage";
 import PromptForm from "./PromptForm";
 import Bubble from "./Bubble";
@@ -49,10 +49,8 @@ export default function Conversation() {
             setConversation(prev => [...prev, newUserMessage]);
 
             addOptimisticMessage({role: "assistant", content: "Chargement de la réponse..."});
-            //const response = await sendPrompts([...conversation, newUserMessage]);
-            const response2 = await sendPromptsStream(newUserMessage.content);
-            console.log(response2);
-            const newGptMessage: ChatCompletionRequestMessage = {role: "assistant", content: response2};
+            const response = await sendPrompts([...conversation, newUserMessage]);
+            const newGptMessage: ChatCompletionRequestMessage = {role: "assistant", content: response};
             setConversation(prev => [...prev, newGptMessage]);
         }
     }
