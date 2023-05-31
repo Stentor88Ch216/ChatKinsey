@@ -9,6 +9,9 @@ import Bubble from "./Bubble";
 import Image from "next/image";
 import logo from "./images/ChatKinseyLogoHD.png";
 
+import TestPage from "./TestPage";
+import TestPage2 from "./TestPage2";
+
 
 let initialConversation: ChatCompletionRequestMessage[] = [];
 
@@ -62,6 +65,10 @@ export default function Conversation() {
                 <Image src={logo} alt="logo" className="welcome-logo"></Image>
                 <WelcomeMessage/>
                 {optimisticMessages.map((m, i) => <Bubble message={m} index={i} key={i.toString()+m.content[0]}/>)}
+
+                {/*<TestPage/>*/}
+                <TestPage2/>
+
             </div>
             <PromptForm action={sendMessage} formRef={formRef}/>
         </div>
