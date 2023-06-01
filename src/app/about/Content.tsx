@@ -3,6 +3,14 @@ import "./contentStyles.css";
 import { TwitterLogoIcon, LinkedInLogoIcon, GitHubLogoIcon, EnvelopeClosedIcon } from '@radix-ui/react-icons';
 
 
+const paragraphs = ["Cette application est une preuve de concept. Elle n'est qu'un aperçu très superficiel des possibilités offertes par les intelligences artificielles génératives dans un parcours de recrutement.",
+                    "Ces technologies vont profondément transformer les entreprises en automatisant des tâches que l'on pensait jusque-là réservées aux humains.",
+                    "Rapidement, les gains en productivité seront tels qu'aucune entreprise, pour sa survie, ne pourra se permettre de l'ignorer.",
+                    "Cela nécessitera de repenser les métiers et les organisations, non sans difficultés.",
+                    "Accompagner les entreprises dans cette révolution sera l'un des défis les plus passionnants de ces prochaines années."];
+
+
+
 export default function Content() {
     return (
 
@@ -39,11 +47,11 @@ export default function Content() {
             </div>
 
             <div className='info'>
-                <p>Cette application est une preuve de concept. Elle n'est qu'un aperçu très superficiel des possibilités offertes par les intelligences artificielles génératives dans un parcours de recrutement.</p>
-                <p>Ces technologies vont profondément transformer les entreprises en automatisant des tâches que l'on pensait jusque-là réservées aux humains.</p>
-                <p>Rapidement, les gains en productivité seront tels qu'aucune entreprise, pour sa survie, ne pourra se permettre de l'ignorer.</p>
-                <p>Cela nécessitera de repenser les métiers et les organisations, non sans difficultés.</p>
-                <p>Accompagner les entreprises dans cette révolution sera l'un des défis les plus passionnants de ces prochaines années.</p>
+                <p>{paragraphs[0]}</p>
+                <p>{paragraphs[1]}</p>
+                <p>{paragraphs[2]}</p>
+                <p>{paragraphs[3]}</p>
+                <p>{paragraphs[4]}</p>
             </div>
 
         </div>
