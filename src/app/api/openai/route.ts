@@ -27,7 +27,6 @@ export async function POST(req: Request): Promise<Response> {
     const payload = {
         model: "gpt-3.5-turbo",
         messages: prePrompt,
-        max_tokens: 100,
         stream: true,
     };
 
