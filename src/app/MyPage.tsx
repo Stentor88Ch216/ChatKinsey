@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import Conversation from "./conversation";
+import Conversation2 from "./Conversation2";
 //import Lines from "./lines";
 
 export default function MyPage() {
@@ -11,7 +11,7 @@ export default function MyPage() {
     <div>
       {/*<Lines playButton={play} setPlayButton={setPlay}/>*/}
       {/*<Conversation playAnimation={play} setPlayAnimation={setPlay}/>*/}
-      <Conversation/>
+      <Conversation2/>
     </div>
   );
 }
