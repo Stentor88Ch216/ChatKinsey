@@ -7,12 +7,19 @@ import PromptForm2 from "./PromptForm2";
 import Bubble from "./Bubble";
 import Image from "next/image";
 import logo from "./images/ChatKinseyLogoHD.png";
+import { Interface } from "readline";
 
 
 let initialConversation: ChatCompletionRequestMessage[] = [];
 
 
-export default function Conversation2() {
+interface ConversationProps {
+    playAnimation: boolean;
+    setPlayAnimation: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+
+export default function Conversation2(props: ConversationProps) {
 
     const [conversation, setConversation] = useState(initialConversation);
     const [textField, setTextField] = useState("");
@@ -83,6 +90,7 @@ export default function Conversation2() {
         } else if (gptText !== "") {
           const newGPTMessage: ChatCompletionRequestMessage = {role: "assistant", content: gptText};
           setConversation(prev => [...prev, newGPTMessage]);
+          props.setPlayAnimation(true);
         }
       }, [gptText]);
     

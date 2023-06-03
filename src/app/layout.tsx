@@ -16,6 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
 
+        {/** 
         <div className="app-container">
           <Lines/>
           <div className="sidebar">
@@ -23,6 +24,9 @@ export default function RootLayout({
           </div>
           <div className="main-content">{children}</div>
         </div>
+        */}
+
+      {children}
 
       </body>
     </html>

@@ -7,7 +7,7 @@ type Position = "start" | "movingF" | "movingB" | "finish";
 let position: Position = "start";
 
 let t0 = 0;
-let play = false;
+//let play = false;
 let duration = 1000;
 
 type Animated = {
@@ -16,8 +16,8 @@ type Animated = {
   end: number;
 }
 
-let angle: Animated = {start: 2.5, current: 2.5, end: 4};
-let radius: Animated = {start: 300, current: 300, end: 100};
+let angle: Animated = {start: 2.5, current: 2.5, end: 3.5};
+let radius: Animated = {start: 300, current: 300, end: 250};
 let firstLineAngle: Animated = {start: 120, current: 120, end: 100};
 
 function current(v: Animated, t: number, axe: number) {
@@ -27,15 +27,15 @@ function current(v: Animated, t: number, axe: number) {
   return origin + axe * increment;
 }
 
-/*
+
 interface LinesProps {
     playButton: boolean;
-    setPlayButton: (value: boolean) => void;
+    setPlayButton: React.Dispatch<React.SetStateAction<boolean>>;
 }
-*/
+
 
 // props: LinesProps
-export default function Lines() {
+export default function Lines(props: LinesProps) {
 
 
   const setup = (p5: P5, canvasParentRef: Element) => {
@@ -59,11 +59,11 @@ export default function Lines() {
   const draw = (p5: P5) => {
     p5.background(255);
 
-    // props.playButton
-    if (play) {
+    
+    if (props.playButton) {
       t0 = p5.millis();
-      //props.setPlayButton(false);
-      play = false;
+      props.setPlayButton(false);
+      //play = false;
 
       if (position == "start") {
         position = "movingF";
@@ -82,6 +82,8 @@ export default function Lines() {
       angle.current = current(angle, time, axe);
       radius.current = current(radius, time, axe);
       firstLineAngle.current = current(firstLineAngle, time, axe);
+      //circleX.current = current(circleX, time, axe);
+      //circleY.current = current(circleY, time, axe);
     }
 
 
@@ -143,6 +145,7 @@ export default function Lines() {
   return (
     <div>
       <Sketch setup={setup} draw={draw} windowResized={windowResized} className="my-canvas"/>
+      {/*<button onClick={() => props.setPlayButton(true)}>Play</button>*/}
     </div>
   )
 }
