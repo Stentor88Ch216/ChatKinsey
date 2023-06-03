@@ -4,7 +4,7 @@ import { TwitterLogoIcon, LinkedInLogoIcon, GitHubLogoIcon, EnvelopeClosedIcon }
 
 
 const paragraphs = ["Cette application s'appuie sur chatGPT, le modèle de langage d'OpenAI, pour générer des réponses adaptées au contexte d'un entretien d'embauche.",
-                    "L'intelligence artificielle est en train de révolutionner les entreprises. Les accompagner dans cette révolution sera l'un des défis les plus difficiles et passionnants de ces prochaines années.",
+                    "L'intelligence artificielle est en train de transformer les entreprises. Les accompagner dans cette révolution sera l'un des défis les plus difficiles et passionnants de ces prochaines années.",
                     ];
 
 
