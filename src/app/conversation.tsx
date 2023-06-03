@@ -1,3 +1,5 @@
+
+/**
 'use client';
 import { useState, useRef, useEffect } from "react";
 import { ChatCompletionRequestMessage } from "openai";
@@ -15,11 +17,11 @@ import TestPage2 from "./TestPage2";
 
 let initialConversation: ChatCompletionRequestMessage[] = [];
 
-/*
+
 interface ConversationProps{
     playAnimation: boolean;
     setPlayAnimation: (value: boolean) => void;
-}*/
+}
 
 export default function Conversation() {
 
@@ -66,7 +68,7 @@ export default function Conversation() {
                 <WelcomeMessage/>
                 {optimisticMessages.map((m, i) => <Bubble message={m} index={i} key={i.toString()+m.content[0]}/>)}
 
-                {/*<TestPage/>*/}
+                <TestPage/>
                 <TestPage2/>
 
             </div>
@@ -74,3 +76,5 @@ export default function Conversation() {
         </div>
     );
 }
+
+*/
