@@ -1,6 +1,7 @@
 "use client";
 import Sketch from "react-p5";
 import type P5 from "p5";
+import { useEffect, useState } from "react";
 
 
 type Position = "start" | "movingF" | "movingB" | "finish";
@@ -36,8 +37,7 @@ interface LinesProps {
 
 // props: LinesProps
 export default function Lines(props: LinesProps) {
-
-
+    
   const setup = (p5: P5, canvasParentRef: Element) => {
     p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef);
   };
@@ -59,7 +59,6 @@ export default function Lines(props: LinesProps) {
   const draw = (p5: P5) => {
     p5.background(255);
 
-    
     if (props.playButton) {
       t0 = p5.millis();
       props.setPlayButton(false);
@@ -82,21 +81,14 @@ export default function Lines(props: LinesProps) {
       angle.current = current(angle, time, axe);
       radius.current = current(radius, time, axe);
       firstLineAngle.current = current(firstLineAngle, time, axe);
-      //circleX.current = current(circleX, time, axe);
-      //circleY.current = current(circleY, time, axe);
     }
-
-
-
-
-
-    let circleX = 400;
-    let circleY = 2*p5.height/3;
 
     p5.fill(255, 255, 255, 0);
     p5.stroke(200, 200, 200, 0);
+
+    let circleX = 400;
+    let circleY = 2*p5.height/3;
     p5.ellipse(circleX, circleY, radius.current * 2, radius.current * 2);
-    
 
     for (let i = 0; i < 20; i++) {
       // Determine the angle in radians
@@ -137,14 +129,12 @@ export default function Lines(props: LinesProps) {
         p5.line(validIntersections[0].x, validIntersections[0].y, validIntersections[1].x, validIntersections[1].y);
       }
     }
-
-
   };
 
 
-  return (
+  return(
     <div>
-      <Sketch setup={setup} draw={draw} windowResized={windowResized} className="my-canvas"/>
+      <Sketch setup={setup} draw={draw} windowResized={windowResized} className="my-canvas" />
       {/*<button onClick={() => props.setPlayButton(true)}>Play</button>*/}
     </div>
   )
