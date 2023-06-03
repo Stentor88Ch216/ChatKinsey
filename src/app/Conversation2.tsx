@@ -15,7 +15,6 @@ let initialConversation: ChatCompletionRequestMessage[] = [];
 export default function Conversation2() {
 
     const [conversation, setConversation] = useState(initialConversation);
-    let prevConv = conversation;
     const [textField, setTextField] = useState("");
     const [gptText, setGptText] = useState("");
 
@@ -29,7 +28,7 @@ export default function Conversation2() {
           },
           
           body: JSON.stringify({
-            "prompt": "Bonjour, comment ça va ?",
+            "prompt": conversation,
           }),
         })
     
@@ -54,16 +53,16 @@ export default function Conversation2() {
         }
     };
 
-    // - TODO : remove formRef and use a ref to the textarea
-    //const formRef = useRef<HTMLFormElement>(null);
 
-    // Scroll to bottom when new message
     const messagesEndRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         messagesEndRef.current?.scrollTo({
             top: messagesEndRef.current?.scrollHeight,
             behavior: "smooth",
-          });
+        });
+        if (conversation.length > 0 && conversation[conversation.length - 1].role === "user") {
+            generateGpt();
+        }
     }, [conversation]);
 
     
@@ -71,28 +70,17 @@ export default function Conversation2() {
         if (textField !== "" && textField !== undefined) {
             const newUserMessage: ChatCompletionRequestMessage = {role: "user", content: textField};
             setConversation(prev => [...prev, newUserMessage]);
-            prevConv = conversation;
-
-            generateGpt();
-            //let newGPTMessage: ChatCompletionRequestMessage = {role: "assistant", content: gptText};
-            //setConversation(prev => [...prev, newGPTMessage]);
         }
     }
 
     useEffect(() => {
-        // Check if the last message in the conversation is from the assistant
         if (conversation.length > 0 && conversation[conversation.length - 1].role === "assistant") {
-          // If it is, we'll update it with the new text
           setConversation(prev => {
-            // First, make a copy of the current conversation
             let newConv = [...prev];
-            // Next, update the content of the last message
             newConv[newConv.length - 1].content = gptText;
-            // Finally, return the updated conversation
             return newConv;
           });
-        } else {
-          // If the last message isn't from the assistant, we'll add a new assistant message
+        } else if (gptText !== "") {
           const newGPTMessage: ChatCompletionRequestMessage = {role: "assistant", content: gptText};
           setConversation(prev => [...prev, newGPTMessage]);
         }
