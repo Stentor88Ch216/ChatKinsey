@@ -3,11 +3,9 @@ import "./contentStyles.css";
 import { TwitterLogoIcon, LinkedInLogoIcon, GitHubLogoIcon, EnvelopeClosedIcon } from '@radix-ui/react-icons';
 
 
-const paragraphs = ["Cette application est une preuve de concept. Elle n'est qu'un aperçu très superficiel des possibilités offertes par les intelligences artificielles génératives dans un parcours de recrutement.",
-                    "Ces technologies vont profondément transformer les entreprises en automatisant des tâches que l'on pensait jusque-là réservées aux humains.",
-                    "Rapidement, les gains en productivité seront tels qu'aucune entreprise, pour sa survie, ne pourra se permettre de l'ignorer.",
-                    "Cela nécessitera de repenser les métiers et les organisations, non sans difficultés.",
-                    "Accompagner les entreprises dans cette révolution sera l'un des défis les plus passionnants de ces prochaines années."];
+const paragraphs = ["Cette application s'appuie sur chatGPT, le modèle de langage d'OpenAI, pour générer des réponses adaptées au contexte d'un entretien d'embauche.",
+                    "L'intelligence artificielle est en train de révolutionner les entreprises. Les accompagner dans cette révolution sera l'un des défis les plus difficiles et passionnants de ces prochaines années.",
+                    ];
 
 
 
