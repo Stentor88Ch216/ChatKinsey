@@ -20,14 +20,20 @@ input {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /*width: 90vw;
-  max-width: 450px;
-  max-height: 85vh;*/
+  width: 75vw;
+  max-width: 768px;
+  /*max-height: 85vh;*/
   padding: 60px;
   animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 .DialogContent:focus {
   outline: none;
+}
+
+@media screen and (max-width: 768px) {
+  .DialogContent {
+    padding: 30px;
+  }
 }
 
 /*

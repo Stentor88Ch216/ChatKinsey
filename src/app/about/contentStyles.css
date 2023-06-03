@@ -10,6 +10,7 @@
   border-radius: 100%;
   background-color: transparent;
   /*box-shadow: 0px 2px 5px rgba(5, 13, 54, 0.159);*/
+  flex-shrink: 0;
 }
 
 .AvatarImage {
@@ -59,7 +60,7 @@
 
 .ingenieur {
     color:rgb(140, 159, 168);
-    white-space: nowrap;
+    /*white-space: nowrap;*/
     /*background-color: blueviolet;*/
 }
 
