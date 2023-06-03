@@ -1,7 +1,7 @@
 "use client";
 import Sketch from "react-p5";
 import type P5 from "p5";
-import { useEffect, useState } from "react";
+
 
 
 type Position = "start" | "movingF" | "movingB" | "finish";

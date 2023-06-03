@@ -1,9 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
 import Conversation2 from "./Conversation2";
-import Lines from "./lines";
+//import Lines from "./lines";
 import Image from "next/image";
 import logo from "./images/ChatKinseyLogoHD.png";
+import dynamic from "next/dynamic";
+
+const DynamicComponentWithNoSSR = dynamic(() => import('./lines'), {
+  ssr: false
+})
 
 export default function MyPage() {
 
@@ -19,7 +24,9 @@ export default function MyPage() {
   return (
       <div className="app-container">
 
-          {isClient ? <Lines playButton={play} setPlayButton={setPlay}/> : null}
+          {/*{isClient ? <Lines playButton={play} setPlayButton={setPlay}/> : null}*/}
+
+          {isClient ? <DynamicComponentWithNoSSR playButton={play} setPlayButton={setPlay}/> : null}
 
           <div className="sidebar">
             <Image src={logo} alt="logo" className="logo"></Image>
