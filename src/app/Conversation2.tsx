@@ -1,13 +1,11 @@
 'use client';
 import { useState, useRef, useEffect } from "react";
 import { ChatCompletionRequestMessage } from "openai";
-import { sendPrompts } from "./OpenaiFunctions";
 import WelcomeMessage from "./WelcomeMessage";
 import PromptForm2 from "./PromptForm2";
 import Bubble from "./Bubble";
 import Image from "next/image";
 import logo from "./images/ChatKinseyLogoHD.png";
-import { Interface } from "readline";
 
 
 let initialConversation: ChatCompletionRequestMessage[] = [];
